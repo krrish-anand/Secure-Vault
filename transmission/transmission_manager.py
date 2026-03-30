@@ -223,6 +223,9 @@ class TransmissionManager:
         self.mode = "sender"
         self.file_path = file_path
         
+        # Clear blockchain ledger for fresh transmission session
+        self.blockchain.reset_ledger()
+        
         try:
             # STEP 0: Establish secure connection and perform RSA key exchange
             print("\n[0/6] Establishing secure connection with RSA key exchange...")
@@ -525,6 +528,10 @@ class TransmissionManager:
             # Step 2: Verify blocks against blockchain (silent mode - no output)
             print(f"\n[2/6] Verifying block integrity with SHA-256...")
             sys.stdout.flush()
+            
+            # Reload blockchain from disk to pick up sender's hashes
+            self.blockchain._load_ledger()
+            
             verified_count = 0
             failed_hashes = []
             

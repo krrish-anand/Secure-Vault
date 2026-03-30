@@ -262,6 +262,13 @@ class MockBlockchain:
         self.tx_counter = 0
         self.last_hash = None
         self._save_ledger()
+    
+    def reset_ledger(self):
+        """Reset ledger for a fresh transmission session."""
+        self.ledger.clear()
+        self.tx_counter = 0
+        self.last_hash = None
+        self._save_ledger()
 
     def export_ledger(self) -> Dict:
         """
