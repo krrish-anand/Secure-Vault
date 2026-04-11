@@ -129,10 +129,10 @@ def main():
         success = manager.send_file(file_path, receiver_host, receiver_port)
         
         if success:
-            print("\n✅ File transmission completed successfully!")
+            print("\n[SUCCESS] File transmission completed successfully!")
             sys.exit(0)
         else:
-            print("\n❌ File transmission failed!")
+            print("\n[ERROR] File transmission failed!")
             sys.exit(1)
 
     elif command == "transmit-receive":
@@ -161,11 +161,11 @@ def main():
         success = manager.receive_file(listen_port, output_file, expected_blocks=None)
         
         if success:
-            print(f"\n✅ File reception completed successfully!")
+            print(f"\n[SUCCESS] File reception completed successfully!")
             print(f"File saved to: {output_file}")
             sys.exit(0)
         else:
-            print(f"\n❌ File reception failed!")
+            print(f"\n[ERROR] File reception failed!")
             sys.exit(1)
 
     elif command == "transmit-demo":

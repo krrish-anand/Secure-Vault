@@ -391,11 +391,11 @@ class TransmissionManager:
             print(f"✓ Blocks transmitted over network: Complete")
             print(f"✓ AES-256 session key encryption: Ready")
             
-            print(f"\n✅ File transmission completed successfully!")
+            print(f"\n[SUCCESS] File transmission completed successfully!")
             return True
             
         except Exception as e:
-            print(f"\n❌ Transmission failed: {e}")
+            print(f"\n[ERROR] Transmission failed: {e}")
             import traceback
             traceback.print_exc()
             return False
@@ -453,7 +453,7 @@ class TransmissionManager:
                 return False
             
             print(f"  ✓ Listener created on port {listen_port}")
-            print(f"  ⏳ Waiting for sender to connect...")
+            print(f"  [WAITING] Waiting for sender to connect...")
             sys.stdout.flush()
             try:
                 if not self.receiver.accept_connection():
@@ -480,7 +480,7 @@ class TransmissionManager:
             sys.stdout.flush()
             
             # Start receiving blocks
-            print(f"  ⏳ Receiving block stream from sender...")
+            print(f"  [RECEIVING] Receiving block stream from sender...")
             sys.stdout.flush()
             
             # Receive blocks - continue until sustained timeout
@@ -626,13 +626,13 @@ class TransmissionManager:
             self.receiver.close()
             
             print(f"\n{'═'*70}")
-            print(f"  ✅ File Reception Completed Successfully!")
+            print(f"  [SUCCESS] File Reception Completed Successfully!")
             print(f"{'═'*70}\n")
             return True
             
         except Exception as e:
             print(f"\n{'═'*70}")
-            print(f"  ❌ Reception failed: {e}")
+            print(f"  [ERROR] Reception failed: {e}")
             print(f"{'═'*70}\n")
             import traceback
             traceback.print_exc()

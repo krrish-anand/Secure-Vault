@@ -534,5 +534,5 @@ if __name__ == "__main__":
         print(f"  {key}: {value}")
 
     print("\n" + "="*70)
-    print("✅ RSA KEY MANAGEMENT DEMO COMPLETE")
+    print("[SUCCESS] RSA KEY MANAGEMENT DEMO COMPLETE")
     print("="*70 + "\n")
